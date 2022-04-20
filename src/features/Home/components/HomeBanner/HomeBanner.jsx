@@ -16,7 +16,7 @@ function HomeBanner(props) {
 
     return (
         <div 
-            className="h-[50rem] w-full shrink-0 bg-cover bg-no-repeat tablet:h-[500px]" 
+            className="h-[46rem] w-full shrink-0 bg-cover bg-no-repeat tablet:h-[500px]" 
             style={{ backgroundImage: `url(${(background)})` }}
         >
             <Container className="h-full"> 
