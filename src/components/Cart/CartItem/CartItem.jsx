@@ -6,12 +6,17 @@ import AddIcon from '@mui/icons-material/Add';
 import DeleteIcon from '@mui/icons-material/Delete';
 
 function CartItem(props) {
-    const { product, handleAddToFirestore  } = props
+    const { product, handleAddToFirestore, handleRemoveToFirestore  } = props
     const { id, name, img, price, qnt } = product
 
     const onHandleAddToFirestore = (type) => {
         handleAddToFirestore(product, type)
     }
+
+    const onHandleRemoveToFirestore = () => {
+        handleRemoveToFirestore(product)
+    }
+
   return (
     <div 
         className='flex justify-between items-center mb-[15px]'
@@ -33,7 +38,7 @@ function CartItem(props) {
             </div>
             <div className='flex items-center text-sm'>
                 <Button
-                    onClick={onHandleAddToFirestore("decrease")}
+                    onClick={() => onHandleAddToFirestore("decrease")}
                     className="!min-w-[30px]"
                 >
                     <RemoveIcon className='!fill-zinc-700 !w-4 !h-4 hover:!fill-red-500'/>
@@ -42,14 +47,17 @@ function CartItem(props) {
                     {qnt}
                 </span>
                 <Button
-                    onClick={onHandleAddToFirestore("increase")}
+                    onClick={() => onHandleAddToFirestore("increase")}
                     className="!min-w-[30px] "
                 >
                     <AddIcon className='!fill-zinc-700 !w-4 !h-4 hover:!fill-red-500'/>
                 </Button>
             </div>
         </div>
-        <Button className='!min-w-[30px]'>
+        <Button 
+            className='!min-w-[30px]'
+            onClick={() => onHandleRemoveToFirestore}
+        >
             <DeleteIcon className='!text-2xl !fill-zinc-400'/>
         </Button>
     </div>
@@ -59,6 +67,7 @@ function CartItem(props) {
 CartItem.propTypes = {
     cartProducts: PropTypes.object,
     handleAddToFirestore: PropTypes.func.isRequired,
+    handleRemoveToFirestore: PropTypes.func.isRequired,
 }
 
 export default CartItem

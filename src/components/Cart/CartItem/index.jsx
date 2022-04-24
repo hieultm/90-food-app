@@ -1,21 +1,37 @@
 import CartItem from "./CartItem"
-//import useFirestoreProducts from "../../../hooks/useFirestoreProducts"
+import useFirestoreProducts from "../../../hooks/useFirestoreProducts"
+import { useSelector } from "react-redux";
+import { useContext } from "react";
+import { AuthContext } from "../../../context/AuthContext";
 
 function CartItems() {
-  const cartProduct = [
-  ]
+  const cartProducts = useSelector((state) => state.cart)
 
-  const handleAddToFirestore = () => {
-      console.log(cartProduct);
+  const { user } = useContext(AuthContext)
+
+  const { addToFirestore, removeFromFirestore} = useFirestoreProducts()
+
+  const onHandleAddToFirestore = (product, action) => {
+      addToFirestore(user.uid, {
+        productInfo: product,
+        action: action
+      })
+  }
+
+  const onHandleRemoveToFirestore = (product) => {
+    removeFromFirestore(user.uid, {
+      productInfo: product
+    })
   }
 
   return (
     <div
       className="px-4 py-5 mb-auto overflow-y-auto"
     >
-      {cartProduct.map((product) => (
+      {cartProducts.map((product) => (
           <CartItem
-            handleAddToFirestore={handleAddToFirestore}
+            handleAddToFirestore={onHandleAddToFirestore}
+            handleRemoveToFirestore={onHandleRemoveToFirestore}
             key={product.id}
             product={product}
           />

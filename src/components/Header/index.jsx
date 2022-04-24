@@ -27,7 +27,7 @@ function Header() {
 
 
     const {  user, setUser, hasHeader, setHasHeader } = useContext(AuthContext)
-    const cartProducts = useSelector((state) => state.cart)
+    const cartProducts = useSelector((state) => state.cart);
 
     const dispatch = useDispatch()
     let history = useHistory()
@@ -189,8 +189,6 @@ function Header() {
         <Cart/>
         <Dialog isShow={isShowDialog} setIsShow={setIsShowDialog}/>
     </>
-
-
     )
 }
 

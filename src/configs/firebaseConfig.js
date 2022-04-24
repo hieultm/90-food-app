@@ -14,15 +14,16 @@ const firebaseConfig = {
     measurementId: "G-J0PDLWBV94"
 };
 
-// Initialize Firebase
-firebase.initializeApp(firebaseConfig);
-firebase.analytics()
+!firebase.apps.length ? firebase.initializeApp(firebaseConfig) : firebase.app();
+firebase.analytics();
 
 const auth = firebase.auth()
 const db = firebase.firestore()
 
 const googleProvider = new firebase.auth.GoogleAuthProvider()
 const fbProvider = new firebase.auth.FacebookAuthProvider()
+
+auth.setPersistence("local");
 
 export default firebase
 export { googleProvider, fbProvider, auth, db }

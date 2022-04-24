@@ -14,13 +14,14 @@ import useFirestoreProducts from '../../hooks/useFirestoreProducts';
 
 
 function ShopProduct(props) {
+
     const {id, name, img, dsc, price, country, openDialog} = props
 
     const {addToFirestore} = useFirestoreProducts()
 
     const { user } = useContext(AuthContext)
 
-    const addToCart = (type) => {
+    const handleAddToFirestore = () => {
 
         const productInfo = {id, name, img, dsc, country}
         if(!user) {
@@ -28,11 +29,12 @@ function ShopProduct(props) {
             return;
         }
         addToFirestore(user.uid, {
-            type,
             productInfo,
             action: 'increase'
         });
     }
+
+
     return (
         <div
             id={id}
@@ -83,7 +85,7 @@ function ShopProduct(props) {
                 >
                     <div 
                         className='rounded-full w-[29.5px] h-[29.5px] text-center mb-[5px] bg-product-cart'
-                        onClick={addToCart}
+                        onClick={handleAddToFirestore}
                     >
                         <ShoppingCartOutlinedIcon className="text-white !w-[16.5px] !h-full hover:!text-red-500"/>
                     </div>
