@@ -2,11 +2,15 @@ import SecondaryButton from "../../SecondaryButton/index"
 import ShoppingCartCheckoutIcon from '@mui/icons-material/ShoppingCartCheckout';
 import StoreMallDirectoryIcon from '@mui/icons-material/StoreMallDirectory';
 
+import usePrice from "../../../hooks/usePrice"
+
 import {useState } from "react";
 
 
 function CartHandle() {
     const [isActive, setIsActive] = useState(false)
+
+    const { totalPrice } = usePrice();
 
     const toggleDropUp = () => {
         setIsActive(!isActive)
@@ -59,7 +63,7 @@ function CartHandle() {
                 Total
             </span>
             <span className="text-2xl font-bold text-red-500">
-                $
+                ${totalPrice}
             </span>
         </div>
         <div 

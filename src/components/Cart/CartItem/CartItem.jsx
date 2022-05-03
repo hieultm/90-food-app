@@ -56,7 +56,7 @@ function CartItem(props) {
         </div>
         <Button 
             className='!min-w-[30px]'
-            onClick={() => onHandleRemoveToFirestore}
+            onClick={() => onHandleRemoveToFirestore()}
         >
             <DeleteIcon className='!text-2xl !fill-zinc-400'/>
         </Button>

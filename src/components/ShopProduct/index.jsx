@@ -23,7 +23,7 @@ function ShopProduct(props) {
 
     const handleAddToFirestore = () => {
 
-        const productInfo = {id, name, img, dsc, country}
+        const productInfo = {id, name, img, price, dsc, country}
         if(!user) {
             openDialog();
             return;
