@@ -1,6 +1,7 @@
 import { Fragment, useContext, useEffect } from "react";
 import HomeBanners  from "../Home/components/HomeBanner";
 import HomeDelivery from "./components/HomeDelivery";
+import HomeSlider from "./components/HomeSlider";
 
 import { AuthContext } from '../../context/AuthContext'
 
@@ -14,6 +15,7 @@ function Home() {
     return (
         <Fragment>
             <HomeBanners/>
+            <HomeSlider/>
             <HomeDelivery/>
         </Fragment>
     )

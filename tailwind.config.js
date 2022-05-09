@@ -27,12 +27,17 @@ module.exports = {
                 'dropList': '0 5px 15px rgba(0, 0, 0, 0.15)',
                 'cart-overlay': '-2px 0 15px rgba(0, 0, 0, 0.1)',
                 'cart-handle': '0 -5px 15px rgb(0 0 0 / 5%)',
+                'slider': '0 3px 20px rgb(0 0 0 / 8%)',
+                'slider-hover': '0 5px 12px rgba(0, 0, 0, 0.1)',
             },
             fill: {
                 'fb': '#4166b1',
             },
             margin: {
                 'unset': 'unset'
+            },
+            fontFamily: {
+                'category-heading': ['"Dancing Script"', 'cursive']
             }
         },
         screens: {

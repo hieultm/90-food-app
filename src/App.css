@@ -17,3 +17,8 @@
 ::-webkit-scrollbar-thumb:hover {
     background-color: #909090;
 }
+
+.swiper {
+    position: static!important;
+    width: 90%;
+}

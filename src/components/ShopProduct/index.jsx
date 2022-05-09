@@ -12,6 +12,8 @@ import { useContext } from 'react';
 
 import useFirestoreProducts from '../../hooks/useFirestoreProducts';
 
+import ToastNotification from '../ToastNotification';
+
 
 function ShopProduct(props) {
 
@@ -32,6 +34,7 @@ function ShopProduct(props) {
             productInfo,
             action: 'increase'
         });
+        ToastNotification("success");
     }
 
 

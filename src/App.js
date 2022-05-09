@@ -7,6 +7,10 @@ import AuthProvider from "./context/AuthContext"
 //import ApiProvider from './context/apiContext';
 import PrevFilterProvider from './context/PrevFilterContext';
 
+// toast
+import { ToastContainer } from 'react-toastify'
+import 'react-toastify/dist/ReactToastify.css';
+
 
 
 function App() {
@@ -21,6 +25,7 @@ function App() {
         </AuthProvider>
       </Router>
       <Footer />
+      <ToastContainer closeButton={false}/>
     </>
   );
 }
