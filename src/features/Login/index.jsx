@@ -84,7 +84,7 @@ function Login() {
                             <Button
                                 onClick={handleGoogleLogin} 
                                 className="!mr-5 !text-sm !bg-white !mt-4 
-                                !rounded-full !min-w-[185px] !normal-case !px-3 !py-[10px] !text-inherit !shadow-btnLogin"
+                                !rounded-full !min-w-[185px] !normal-case !px-3 !py-[10px] !text-inherit shadow-btnLogin"
                             >
                                 <img 
                                     src={GoogleIcon} 
@@ -97,7 +97,7 @@ function Login() {
                             <Button
                                 onClick={handleFbLogin}
                                 className="!text-sm !bg-white !rounded-full !mt-4
-                                !normal-case !px-3 !py-[10px] !text-inherit !shadow-btnLogin"
+                                !normal-case !px-3 !py-[10px] !text-inherit shadow-btnLogin"
                             >
                                 <FacebookIcon className="mr-1 !w-5 !h-5 !fill-fb"/>
                                 Log in with Facebook
