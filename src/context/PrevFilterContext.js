@@ -1,34 +1,36 @@
-import { createContext, useState } from "react";
-
+import { createContext, useState } from 'react';
 
 export const PrevFilterContext = createContext();
 
 function PrevFilterProvider({ children }) {
-    const [selectedDrop, setSelectedDrop] = useState("Featured");   
+    const [prevName, setPrevName] = useState(null);
+    const [selectedDrop, setSelectedDrop] = useState('Featured');
 
     const handlePrev = (type, value) => {
         switch (type) {
-            case "sort" :
-                setSelectedDrop("Featured");
+            case 'name':
+                setPrevName(value);
+                setSelectedDrop('Featured');
                 break;
-            case "drop" :
-                setSelectedDrop(value)
+            case 'sort':
+                setSelectedDrop('Featured');
+                break;
+            case 'drop':
+                setSelectedDrop(value);
                 break;
             default:
                 break;
         }
 
         return {
+            prevName,
+            setPrevName,
             selectedDrop,
-            setSelectedDrop
-        }
-    }
+            setSelectedDrop,
+        };
+    };
 
-    return (
-        <PrevFilterContext.Provider value={{ handlePrev }}>
-          {children}
-        </PrevFilterContext.Provider>
-      );
+    return <PrevFilterContext.Provider value={{ handlePrev }}> {children} </PrevFilterContext.Provider>;
 }
 
-export default PrevFilterProvider
+export default PrevFilterProvider;

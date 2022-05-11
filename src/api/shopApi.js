@@ -1,9 +1,8 @@
-import axiosClient from "./axiosClient"
+import axiosClient from './axiosClient';
 
 const shopApi = {
-    getAll: (params) => {
-        const url = `/best-foods`
-        return axiosClient.get(url, { params })
+    getAll: (type, params) => {
+        return axiosClient.get(type, { params });
     },
 
     get: (id) => {

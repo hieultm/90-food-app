@@ -1,14 +1,14 @@
-import { lazy } from "react"
-import { Redirect } from "react-router-dom";
+import { lazy } from 'react';
+import { Redirect } from 'react-router-dom';
 
-import { PATH_NAMES } from "../constants/routes";
+import { PATH_NAMES } from '../constants/routes';
 
 const Home = lazy(() =>
-    import ("../features/Home"))
+    import ('../features/Home'));
 const Login = lazy(() =>
-    import ("../features/Login"))
+    import ('../features/Login'));
 const Shop = lazy(() =>
-    import ("../features/Shop"))
+    import ('../features/Shop'));
 
 const routesConfig = [{
         exact: true,
@@ -31,6 +31,6 @@ const routesConfig = [{
         path: PATH_NAMES.SHOP,
         component: Shop,
     },
-]
+];
 
 export default routesConfig;
