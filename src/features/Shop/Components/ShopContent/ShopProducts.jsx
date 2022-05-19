@@ -16,7 +16,7 @@ function ShopProducts() {
 
     return (
         <>
-            <div className="flex justify-center flex-wrap gap-3 pt-6 pl-5 pb-5 tablet:p-0">
+            <div className="flex justify-start flex-wrap gap-3 pt-6 pl-5 pb-5 tablet:p-0">
                 {shopProducts &&
                     shopProducts.map((item) => (
                         <ShopProduct key={item.id} {...item} openDialog={openDialog}></ShopProduct>

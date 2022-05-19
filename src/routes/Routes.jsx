@@ -5,7 +5,7 @@ import routesConfig from '../configs/routesConfig';
 
 function Routes() {
     return (
-        <Suspense fallback={<div>Loading...</div>}>
+        <Suspense fallback={<div className="h-screen w-full z-[9999] bg-zinc-300">Loading...</div>}>
             <Switch>
                 {routesConfig.map(({ exact, path, component }, index) => (
                     <Route key={`route-${index}`} path={path} component={component} exact={exact} />

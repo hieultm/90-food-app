@@ -26,12 +26,13 @@ function ShopFilter() {
     const { getProducts } = useContext(apiContext);
 
     const onFilterByCategory = (params) => {
-        const { prevName, setPrevName } = handlePrev('name', params);
+        const { prevName, setPrevName, setNameActive } = handlePrev('name', params);
 
         if (params !== prevName) {
             getProducts(params);
         }
         console.log(params);
+        setNameActive(params);
         setPrevName(params);
     };
     return (

@@ -35,7 +35,7 @@ function ShopProduct(props) {
     };
 
     return (
-        <div id={id} className="relative pb-3 cursor-pointer flex-item-product group">
+        <div id={id} className="relative max-w-[187.2px] pb-3 cursor-pointer flex-item-product group">
             <div className="relative h-[165px] text-center">
                 <LazyLoadImage
                     effect="blur"
@@ -48,8 +48,10 @@ function ShopProduct(props) {
             </div>
             <div className="flex-1 flex flex-col">
                 <div className="flex flex-1 flex-col">
-                    <div className="font-semibold text-lg mt-2 mb-[6px]">{name}</div>
-                    <p className="text-sm mb-[5px] ">{dsc}</p>
+                    <div className="font-semibold text-lg mt-2 mb-[6px] text-ellipsis overflow-hidden flex-1 min-h-[60px]">
+                        {name}
+                    </div>
+                    <p className="text-sm mb-[5px] block text-ellipsis overflow-hidden min-h-[50px]">{dsc}</p>
                 </div>
                 <div className="flex justify-between mt-auto flex-shrink-0">
                     <div className="flex items-center ">
