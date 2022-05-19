@@ -10,5 +10,3 @@ Front-end:
   * Swiper-js
   * React-toastify
   * React-router-dom
-Backend:
-* Firebase
