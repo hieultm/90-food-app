@@ -4,6 +4,7 @@ import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import { useDispatch } from 'react-redux';
 import { filterByOrder } from '../../shopSlice';
 import { PrevFilterContext } from '../../../../context/PrevFilterContext';
+import { apiContext } from '../../../../context/apiContext';
 
 const dataTypes = [
     {
@@ -21,8 +22,10 @@ function ShopHandle() {
     const [isDrop, setIsDrop] = useState(false);
     const ref = useRef();
 
+    const { getProducts } = useContext(apiContext);
+
     const { handlePrev } = useContext(PrevFilterContext);
-    const { selectedDrop, setSelectedDrop } = handlePrev();
+    const { selectedDrop, setSelectedDrop, setPrevSearch } = handlePrev();
 
     useEffect(() => {
         const handleClickDrop = (e) => {
@@ -48,17 +51,31 @@ function ShopHandle() {
         setSelectedDrop(value);
     };
 
+    const handleSearch = (e) => {
+        handlePrev('search');
+        e.preventDefault();
+
+        if (!inputValue) return;
+
+        const query = { name_like: inputValue };
+
+        getProducts('our-foods', query);
+        setInputValue('');
+        setPrevSearch(query);
+    };
+
     return (
         <div className="flex items-start tablet:mb-5">
             <form
-                value={inputValue}
                 className="flex flex-1 items-center rounded-[20px] py-1 pl-4 pr-2
                 border-zinc-400 border-[1px] border-solid ml-8"
+                onSubmit={handleSearch}
             >
                 <input
                     onChange={(e) => setInputValue(e.target.value)}
                     placeholder="Search your product"
                     className="outline-none border-0 w-full"
+                    value={inputValue}
                 />
                 <button className="w-8 h-8 ml-auto bg-none">
                     <SearchIcon className="!w-6 !h-full !text-center !fill-zinc-400" />

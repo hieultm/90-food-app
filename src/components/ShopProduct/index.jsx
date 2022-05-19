@@ -86,7 +86,6 @@ ShopProduct.propsTypes = {
     country: PropTypes.string,
 
     openDialog: PropTypes.func,
-    // moveToTop: PropTypes.func
 };
 
 export default ShopProduct;
