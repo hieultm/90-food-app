@@ -16,6 +16,10 @@ function Shop() {
 
     const { getProducts } = useContext(apiContext);
 
+    useEffect(() => {
+        getProducts(name);
+    }, []);
+
     window.addEventListener('load', () => {
         const params = history.location.search;
         if (params) {

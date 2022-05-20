@@ -27,7 +27,6 @@ const ApiProvider = ({ children }) => {
             console.log(err.message);
         }
     };
-    getProducts('best-foods');
     return <apiContext.Provider value={{ getProducts }}> {children} </apiContext.Provider>;
 };
 
