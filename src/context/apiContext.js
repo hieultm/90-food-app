@@ -15,7 +15,7 @@ const ApiProvider = ({ children }) => {
 
     const getProducts = async (type, params) => {
         try {
-            const res = await shopApi.getAll(type, { params });
+            const res = await shopApi.getAll(type, { ...params });
             const action = setShopProducts(res.data);
             dispatch(action);
             // routes

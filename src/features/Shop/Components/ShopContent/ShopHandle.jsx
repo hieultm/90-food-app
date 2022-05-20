@@ -68,7 +68,6 @@ function ShopHandle() {
         let result = e.target.value;
         setInputValue(result);
         const action = searchByName(result);
-        console.log(action);
         dispatch(action);
     };
 
