@@ -2,7 +2,7 @@ import { useEffect, useRef, useState, useContext } from 'react';
 import SearchIcon from '@mui/icons-material/Search';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import { useDispatch } from 'react-redux';
-import { filterByOrder } from '../../shopSlice';
+import { filterByOrder, searchByName } from '../../shopSlice';
 import { PrevFilterContext } from '../../../../context/PrevFilterContext';
 import { apiContext } from '../../../../context/apiContext';
 
@@ -51,7 +51,7 @@ function ShopHandle() {
         setSelectedDrop(value);
     };
 
-    const handleSearch = (e) => {
+    const handleSubmitSearch = (e) => {
         handlePrev('search');
         e.preventDefault();
 
@@ -64,15 +64,23 @@ function ShopHandle() {
         setPrevSearch(query);
     };
 
+    const handleSearchTextChange = (e) => {
+        let result = e.target.value;
+        setInputValue(result);
+        const action = searchByName(result);
+        console.log(action);
+        dispatch(action);
+    };
+
     return (
         <div className="flex items-start tablet:mb-5">
             <form
                 className="flex flex-1 items-center rounded-[20px] py-1 pl-4 pr-2
                 border-zinc-400 border-[1px] border-solid ml-8"
-                onSubmit={handleSearch}
+                onSubmit={handleSubmitSearch}
             >
                 <input
-                    onChange={(e) => setInputValue(e.target.value)}
+                    onChange={handleSearchTextChange}
                     placeholder="Search your product"
                     className="outline-none border-0 w-full"
                     value={inputValue}

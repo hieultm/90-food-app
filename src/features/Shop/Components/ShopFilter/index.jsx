@@ -31,7 +31,6 @@ function ShopFilter() {
         if (params !== prevName) {
             getProducts(params);
         }
-        console.log(params);
         setNameActive(params);
         setPrevName(params);
     };
