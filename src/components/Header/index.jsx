@@ -24,6 +24,7 @@ import ResponsiveNavbar from './ResponsiveNavbar';
 function Header() {
     const { user, setUser, hasHeader } = useContext(AuthContext);
     const cartProducts = useSelector((state) => state.cart);
+    const userInfo = JSON.parse(localStorage.getItem('user'));
 
     const dispatch = useDispatch();
     let history = useHistory();
@@ -57,6 +58,7 @@ function Header() {
     };
     //Logout
     const handleLogOut = () => {
+        localStorage.setItem('user', null);
         auth.signOut().then(() => {
             setUser(false);
         });
@@ -118,14 +120,14 @@ function Header() {
                                     </div>
                                 </div>
                             </div>
-                            {user ? (
+                            {userInfo ? (
                                 <div className="flex items-center text-base mx-8 cursor-pointer group tablet:hidden">
-                                    <Avatar src={user.photoURL} />
+                                    <Avatar src={userInfo.profilePic} />
                                     <label
                                         className="text-white items-center text-lg cursor-pointer ml-[0.85rem] hover:text-red-500"
                                         htmlFor="login"
                                     >
-                                        {user.displayName}
+                                        {userInfo.username}
                                     </label>
                                     <ul
                                         className="absolute top-[70px] bg-white py-[7px] transition-all delay-75 ease-out
